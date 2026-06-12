@@ -1,0 +1,119 @@
+/* Constrói Spa & Pool — Tema Escuro (aplicado quando <html> tem .theme-dark) */
+
+/* Mapeamento mínimo de variáveis para o tema escuro na raiz */
+:root.theme-dark{
+  --azul-principal:#2CAFE3;
+  --cinza-texto:#C7D3DB;
+  --dm-bg:#0C141A; --dm-surface:#0F1C24; --dm-text:#FFFFFF;
+}
+
+/* 1) Variáveis de tema (.theme-dark) */
+.theme-dark {
+  /* Paleta principal */
+  --dm-bg: #0C141A;                /* Fundo base */
+  --dm-surface: #0F1C24;           /* Superfícies (cards/nav/footers) */
+  --dm-surface-2: #14222C;         /* Superfície alternativa/inputs */
+  --dm-border: rgba(255, 255, 255, 0.10);
+  --dm-border-soft: rgba(255, 255, 255, 0.08);
+
+  --dm-text: #FFFFFF;              /* Texto principal */
+  --dm-text-muted: #C7D3DB;        /* Texto secundário */
+
+  --dm-primary: #2CAFE3;           /* Azul principal da marca (dark) */
+  --dm-primary-rgb: 44, 175, 227;
+  --dm-gold: #FDDC6C;              /* Dourado premium */
+  --dm-gold-rgb: 253, 220, 108;
+
+  --dm-header-gradient: linear-gradient(90deg, #003A5C 0%, #026D8D 100%);
+
+  /* Opcional: mapear tokens claros para tonalidades escuras (mantém compatibilidade com CSS existente) */
+  --azul-principal: var(--dm-primary);
+  --cinza-texto: var(--dm-text-muted);
+}
+
+/* 2) Estrutura base e cores de texto */
+.theme-dark body { background-color: var(--dm-bg); color: var(--dm-text); }
+.theme-dark a { color: var(--dm-primary); }
+.theme-dark a:hover, .theme-dark a:focus { color: rgba(var(--dm-primary-rgb), 0.9); }
+.theme-dark .text-muted { color: var(--dm-text-muted) !important; }
+.theme-dark .page-hero {
+  background: linear-gradient(180deg, #0F2A3A 0%, #0C141A 100%);
+  color: var(--dm-text);
+}
+.theme-dark .page-hero h1,
+.theme-dark .page-hero .lead,
+.theme-dark .breadcrumb a,
+.theme-dark .breadcrumb .active { color: var(--dm-text); opacity: 0.95; }
+.theme-dark .breadcrumb .breadcrumb-item + .breadcrumb-item::before { color: var(--dm-text-muted); }
+
+/* 3) Header e navegação */
+.theme-dark .bg-gradiente { background: var(--dm-header-gradient) !important; }
+.theme-dark .navbar .navbar-toggler { border-color: rgba(255,255,255,0.6); }
+.theme-dark .navbar .navbar-toggler-icon { filter: invert(1) grayscale(100%); }
+.theme-dark .navbar-nav .nav-link { color: rgba(255,255,255,0.95); }
+.theme-dark .navbar-nav .nav-link:hover,
+.theme-dark .navbar-nav .nav-link:focus {
+  background-color: rgba(var(--dm-primary-rgb), 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  color: #fff;
+}
+.theme-dark .navbar-nav .nav-link.active {
+  background-color: rgba(var(--dm-primary-rgb), 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.20);
+  color: #fff;
+}
+.theme-dark .dropdown-menu-services { background: var(--dm-surface); box-shadow: 0 10px 28px rgba(0,0,0,.35); border: 1px solid var(--dm-border-soft); }
+.theme-dark .dropdown-menu-services .dropdown-item { color: var(--dm-primary); }
+.theme-dark .dropdown-menu-services .dropdown-item:hover,
+.theme-dark .dropdown-menu-services .dropdown-item:focus { background: rgba(var(--dm-primary-rgb), .10); color: #fff; }
+
+/* 4) Botões (primário, outline, warning) */
+.theme-dark .btn { transition: all 0.2s ease; }
+.theme-dark .btn-primary { background-color: var(--dm-primary); border-color: var(--dm-primary); color: #0A2540; font-weight: 600; }
+.theme-dark .btn-primary:hover,
+.theme-dark .btn-primary:focus { background-color: rgba(var(--dm-primary-rgb), 0.85); border-color: rgba(var(--dm-primary-rgb), 0.85); color: #0A2540; }
+.theme-dark .btn-outline-primary { color: var(--dm-primary); border-color: var(--dm-primary); }
+.theme-dark .btn-outline-primary:hover,
+.theme-dark .btn-outline-primary:focus { background-color: var(--dm-primary); color: #0A2540; border-color: var(--dm-primary); }
+.theme-dark .btn-warning { background-color: var(--dm-gold); border-color: var(--dm-gold); color: #0A2540; font-weight: 600; }
+.theme-dark .btn-outline-light { color: #fff; border-color: rgba(255,255,255,0.6); }
+.theme-dark .btn-outline-light:hover { background-color: rgba(255,255,255,0.12); color: #fff; }
+
+/* 5) Cartões, painéis e formulários */
+.theme-dark .card,
+.theme-dark .modal-content,
+.theme-dark .offcanvas,
+.theme-dark .dropdown-menu,
+.theme-dark .list-group-item { background-color: var(--dm-surface); color: var(--dm-text); border-color: var(--dm-border); }
+.theme-dark .list-group-item.active { background-color: rgba(var(--dm-primary-rgb), 0.18); border-color: var(--dm-primary); color: #fff; }
+.theme-dark .table { color: var(--dm-text); }
+.theme-dark .table thead th { color: #fff; border-color: var(--dm-border); }
+.theme-dark .table tbody td { border-color: var(--dm-border-soft); }
+.theme-dark .form-control,
+.theme-dark .form-select,
+.theme-dark .form-check-input { background-color: var(--dm-surface-2); border-color: var(--dm-border); color: var(--dm-text); }
+.theme-dark .form-control::placeholder { color: rgba(199,211,219,0.7); }
+.theme-dark .form-control:focus,
+.theme-dark .form-select:focus { border-color: rgba(var(--dm-primary-rgb), 0.65); box-shadow: 0 0 0 0.2rem rgba(var(--dm-primary-rgb), 0.18); }
+.theme-dark .form-check-input:checked { background-color: var(--dm-primary); border-color: var(--dm-primary); }
+.theme-dark .product-card .product-img-wrap { background: #0b1217; }
+.theme-dark .product-card .product-overlay { background: rgba(0,0,0,.45); }
+
+/* 6) Footer */
+.theme-dark .site-footer { background: var(--dm-surface); color: var(--dm-text-muted); border-top: 1px solid var(--dm-border); }
+.theme-dark .footer-social span,
+.theme-dark .footer-top span { color: #fff; }
+.theme-dark .footer-icons a { color: var(--dm-primary); }
+.theme-dark .footer-icons a:hover { color: rgba(var(--dm-primary-rgb), 0.9); }
+.theme-dark .footer-legal { color: var(--dm-text-muted); }
+.theme-dark .footer-legal a { color: var(--dm-primary); }
+
+/* 7) Alertas e estados */
+.theme-dark .alert { border: 1px solid var(--dm-border); }
+.theme-dark .alert-light { background-color: rgba(255,255,255,0.05); color: var(--dm-text-muted); border-color: var(--dm-border-soft); }
+.theme-dark .alert-success { background-color: rgba(25,135,84,0.12); color: #8fd1b7; border-color: rgba(25,135,84,0.35); }
+.theme-dark .alert-warning { background-color: rgba(var(--dm-gold-rgb), 0.12); color: var(--dm-gold); border-color: rgba(var(--dm-gold-rgb), 0.35); }
+.theme-dark .alert-danger { background-color: rgba(220,53,69,0.12); color: #f0a7b0; border-color: rgba(220,53,69,0.35); }
+
+/* Extra: Cookie banner */
+.theme-dark .cookie-banner .alert-light { background-color: rgba(255,255,255,0.06); color: var(--dm-text); border-color: var(--dm-border); }
